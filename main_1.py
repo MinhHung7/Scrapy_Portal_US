@@ -6,11 +6,16 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pprint import pprint
+from Event import Event
+from quickstart import main
+import re
+from datetime import datetime, timedelta
 
 class login():
-    def __init__(self, user_name, password):
+    def __init__(self, user_name, password, event_list = []):
         self.user_name = user_name
         self.password = password
+        self.event_list = event_list
     
         self.s = requests.session()
         headers = {
@@ -119,20 +124,28 @@ class login():
             for row in rows:
                 # Find all cells in the row
                 cells = row.find_all('td')
-                
-                # Extract and print the content of each cell in separate lines
-                for cell in cells:
-                    print(cell.get_text().strip())
-                
+
+                event = Event()
+                # # Extract and print the content of each cell in separate lines
+                event.header = cells[4].get_text().strip()
+                event.content = "CÓ LỊCH THI LÚC " + cells[3].get_text().strip() + " TẠI "+ cells[5].get_text().strip()
+                event.date = datetime.strptime(cells[2].get_text().strip(), "%d/%m/%Y").strftime("%Y-%m-%d")
+                event.start_time = datetime.strptime(cells[3].get_text().strip().replace("g", "h"), "%Hh%M").strftime("%H:%M:%S")
+                event.end_time = (datetime.strptime(event.start_time, "%H:%M:%S") + timedelta(hours=1)).strftime("%H:%M:%S")
+
+                self.event_list.append(event)
                 # Print a separator line between rows
-                print('-' * 20)
         finally:
             pass
 
         # return html_content
     
-user_name = '...'
-password = '...'
-test = login(user_name, password)
+user_name = '22120123@student.hcmus.edu.vn'
+password = 'Hung12345'
+event_list = []
+test = login(user_name, password, event_list)
 
 test.checkInfo()
+
+main(test.event_list)
+

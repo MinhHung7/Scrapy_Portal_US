@@ -1,11 +1,76 @@
 [
     {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "requests",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "requests",
         "description": "requests",
         "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "password",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "user_name",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
         "documentation": {}
     },
     {
@@ -17,11 +82,109 @@
         "documentation": {}
     },
     {
-        "label": "Options",
-        "importPath": "selenium.webdriver.chrome.options",
-        "description": "selenium.webdriver.chrome.options",
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
         "isExtraImport": true,
-        "detail": "selenium.webdriver.chrome.options",
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriverWait",
+        "importPath": "selenium.webdriver.support.ui",
+        "description": "selenium.webdriver.support.ui",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support.ui",
+        "documentation": {}
+    },
+    {
+        "label": "expected_conditions",
+        "importPath": "selenium.webdriver.support",
+        "description": "selenium.webdriver.support",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "Event",
+        "importPath": "Event",
+        "description": "Event",
+        "isExtraImport": true,
+        "detail": "Event",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "importPath": "quickstart",
+        "description": "quickstart",
+        "isExtraImport": true,
+        "detail": "quickstart",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "os.path",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os.path",
+        "description": "os.path",
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "google.auth.transport.requests",
+        "description": "google.auth.transport.requests",
+        "isExtraImport": true,
+        "detail": "google.auth.transport.requests",
+        "documentation": {}
+    },
+    {
+        "label": "Credentials",
+        "importPath": "google.oauth2.credentials",
+        "description": "google.oauth2.credentials",
+        "isExtraImport": true,
+        "detail": "google.oauth2.credentials",
+        "documentation": {}
+    },
+    {
+        "label": "InstalledAppFlow",
+        "importPath": "google_auth_oauthlib.flow",
+        "description": "google_auth_oauthlib.flow",
+        "isExtraImport": true,
+        "detail": "google_auth_oauthlib.flow",
+        "documentation": {}
+    },
+    {
+        "label": "build",
+        "importPath": "googleapiclient.discovery",
+        "description": "googleapiclient.discovery",
+        "isExtraImport": true,
+        "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "HttpError",
+        "importPath": "googleapiclient.errors",
+        "description": "googleapiclient.errors",
+        "isExtraImport": true,
+        "detail": "googleapiclient.errors",
         "documentation": {}
     },
     {
@@ -70,39 +233,111 @@
         "documentation": {}
     },
     {
-        "label": "Login",
+        "label": "Event",
         "kind": 6,
+        "importPath": "Event",
+        "description": "Event",
+        "peekOfCode": "class Event:\n    def __init__(self, header='', content='', date = '', start_time='', end_time=''):\n        self.header = header\n        self.content = content\n        self.start_time = start_time\n        self.end_time = end_time\n        self.date = date\n    def Print(self):\n        print(self.header)\n        print(self.content)",
+        "detail": "Event",
+        "documentation": {}
+    },
+    {
+        "label": "initial_time_str",
+        "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "class Login:\n    def __init__(self, user_name, password):\n        self.user_name = user_name\n        self.password = password\n        self.s = requests.session()\n        headers = {\n            'Accept-Language': 'en',\n            'Referer': 'https://login.microsoftonline.com/40127cd4-45f3-49a3-b05d-315a43a9f033/oauth2/v2.0/authorize?client_id=9198f68e-537f-4bfa-afe6-205726c6d90e&scope=User.Read%20openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Fstudent.hcmus.edu.vn%2Flogin&client-request-id=afa285b8-398c-4ad1-ac8b-539b7223f1af&response_mode=fragment&response_type=code&x-client-SKU=msal.js.browser&x-client-VER=3.2.0&client_info=1&code_challenge=l2qk6wY6PBGBWpl_kgC1Y5FYksbXF3D6GqGbbEOA_fc&code_challenge_method=S256&nonce=75d1da46-dc60-428c-acab-a487c475f88a&state=eyJpZCI6Ijg2MWQ2YWE3LTZmYWMtNGFlNS1iZTI0LTA0MjNkNWM1MjUwMiIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D&sso_reload=true',\n            'Sec-Ch-Ua': '\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Google Chrome\";v=\"120\"',\n            'Sec-Ch-Ua-Mobile': '?1',",
+        "peekOfCode": "initial_time_str = \"21:10:45\"\n# Convert the string to a datetime object\ninitial_time = datetime.strptime(initial_time_str, \"%H:%M:%S\")\n# Add one hour to the datetime object\nnew_time = initial_time + timedelta(hours=1)\n# Convert the new datetime object back to a string in the desired format\nnew_time_str = new_time.strftime(\"%H:%M:%S\")\nprint(new_time_str)",
         "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "initial_time",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "initial_time = datetime.strptime(initial_time_str, \"%H:%M:%S\")\n# Add one hour to the datetime object\nnew_time = initial_time + timedelta(hours=1)\n# Convert the new datetime object back to a string in the desired format\nnew_time_str = new_time.strftime(\"%H:%M:%S\")\nprint(new_time_str)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "new_time",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "new_time = initial_time + timedelta(hours=1)\n# Convert the new datetime object back to a string in the desired format\nnew_time_str = new_time.strftime(\"%H:%M:%S\")\nprint(new_time_str)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "new_time_str",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "new_time_str = new_time.strftime(\"%H:%M:%S\")\nprint(new_time_str)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 6,
+        "importPath": "main_1",
+        "description": "main_1",
+        "peekOfCode": "class login():\n    def __init__(self, user_name, password, event_list = []):\n        self.user_name = user_name\n        self.password = password\n        self.event_list = event_list\n        self.s = requests.session()\n        headers = {\n            'Accept-Language': 'en',\n            'Referer': 'https://login.microsoftonline.com/40127cd4-45f3-49a3-b05d-315a43a9f033/oauth2/v2.0/authorize?client_id=9198f68e-537f-4bfa-afe6-205726c6d90e&scope=User.Read%20openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Fstudent.hcmus.edu.vn%2Flogin&client-request-id=afa285b8-398c-4ad1-ac8b-539b7223f1af&response_mode=fragment&response_type=code&x-client-SKU=msal.js.browser&x-client-VER=3.2.0&client_info=1&code_challenge=l2qk6wY6PBGBWpl_kgC1Y5FYksbXF3D6GqGbbEOA_fc&code_challenge_method=S256&nonce=75d1da46-dc60-428c-acab-a487c475f88a&state=eyJpZCI6Ijg2MWQ2YWE3LTZmYWMtNGFlNS1iZTI0LTA0MjNkNWM1MjUwMiIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D&sso_reload=true',\n            'Sec-Ch-Ua': '\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Google Chrome\";v=\"120\"',",
+        "detail": "main_1",
         "documentation": {}
     },
     {
         "label": "user_name",
         "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "user_name = '22120123@student.hcmus.edu.vn'\npassword = 'Hung12345'\ntest = Login(user_name, password)\ntry:\n    timetable_html = test.check_info()\n    print(timetable_html)\nexcept Exception as e:\n    print(f\"Error: {e}\")",
-        "detail": "main",
+        "importPath": "main_1",
+        "description": "main_1",
+        "peekOfCode": "user_name = '22120123@student.hcmus.edu.vn'\npassword = 'Hung12345'\nevent_list = []\ntest = login(user_name, password, event_list)\ntest.checkInfo()\nfor event in test.event_list:\n    event.Print()",
+        "detail": "main_1",
         "documentation": {}
     },
     {
         "label": "password",
         "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "password = 'Hung12345'\ntest = Login(user_name, password)\ntry:\n    timetable_html = test.check_info()\n    print(timetable_html)\nexcept Exception as e:\n    print(f\"Error: {e}\")",
-        "detail": "main",
+        "importPath": "main_1",
+        "description": "main_1",
+        "peekOfCode": "password = 'Hung12345'\nevent_list = []\ntest = login(user_name, password, event_list)\ntest.checkInfo()\nfor event in test.event_list:\n    event.Print()",
+        "detail": "main_1",
+        "documentation": {}
+    },
+    {
+        "label": "event_list",
+        "kind": 5,
+        "importPath": "main_1",
+        "description": "main_1",
+        "peekOfCode": "event_list = []\ntest = login(user_name, password, event_list)\ntest.checkInfo()\nfor event in test.event_list:\n    event.Print()",
+        "detail": "main_1",
         "documentation": {}
     },
     {
         "label": "test",
         "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "test = Login(user_name, password)\ntry:\n    timetable_html = test.check_info()\n    print(timetable_html)\nexcept Exception as e:\n    print(f\"Error: {e}\")",
-        "detail": "main",
+        "importPath": "main_1",
+        "description": "main_1",
+        "peekOfCode": "test = login(user_name, password, event_list)\ntest.checkInfo()\nfor event in test.event_list:\n    event.Print()",
+        "detail": "main_1",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "quickstart",
+        "description": "quickstart",
+        "peekOfCode": "def main(event_list):\n  \"\"\"Shows basic usage of the Google Calendar API.\n  Prints the start and name of the next 10 events on the user's calendar.\n  \"\"\"\n  creds = None\n  # The file token.json stores the user's access and refresh tokens, and is\n  # created automatically when the authorization flow completes for the first\n  # time.\n  if os.path.exists(\"token.json\"):\n    creds = Credentials.from_authorized_user_file(\"token.json\", SCOPES)",
+        "detail": "quickstart",
+        "documentation": {}
+    },
+    {
+        "label": "SCOPES",
+        "kind": 5,
+        "importPath": "quickstart",
+        "description": "quickstart",
+        "peekOfCode": "SCOPES = [\"https://www.googleapis.com/auth/calendar\"]\ndef main(event_list):\n  \"\"\"Shows basic usage of the Google Calendar API.\n  Prints the start and name of the next 10 events on the user's calendar.\n  \"\"\"\n  creds = None\n  # The file token.json stores the user's access and refresh tokens, and is\n  # created automatically when the authorization flow completes for the first\n  # time.\n  if os.path.exists(\"token.json\"):",
+        "detail": "quickstart",
         "documentation": {}
     }
 ]
