@@ -1,0 +1,108 @@
+[
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "webdriver",
+        "importPath": "selenium",
+        "description": "selenium",
+        "isExtraImport": true,
+        "detail": "selenium",
+        "documentation": {}
+    },
+    {
+        "label": "Options",
+        "importPath": "selenium.webdriver.chrome.options",
+        "description": "selenium.webdriver.chrome.options",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.chrome.options",
+        "documentation": {}
+    },
+    {
+        "label": "user_name",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "user_name = '22120123@student.hcmus.edu.vn'\npassword = 'Hung12345'\ninput_string = \"helloIamHungnehihihelloIamHunghahihihelloIamHungkhenhihi\"\nstart_marker = \"Hung\"\nend_marker = \"hihi\"\nprint(input_string.find(\"hr\"))",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "password",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "password = 'Hung12345'\ninput_string = \"helloIamHungnehihihelloIamHunghahihihelloIamHungkhenhihi\"\nstart_marker = \"Hung\"\nend_marker = \"hihi\"\nprint(input_string.find(\"hr\"))",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "input_string",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "input_string = \"helloIamHungnehihihelloIamHunghahihihelloIamHungkhenhihi\"\nstart_marker = \"Hung\"\nend_marker = \"hihi\"\nprint(input_string.find(\"hr\"))",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "start_marker",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "start_marker = \"Hung\"\nend_marker = \"hihi\"\nprint(input_string.find(\"hr\"))",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "end_marker",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "end_marker = \"hihi\"\nprint(input_string.find(\"hr\"))",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "Login",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class Login:\n    def __init__(self, user_name, password):\n        self.user_name = user_name\n        self.password = password\n        self.s = requests.session()\n        headers = {\n            'Accept-Language': 'en',\n            'Referer': 'https://login.microsoftonline.com/40127cd4-45f3-49a3-b05d-315a43a9f033/oauth2/v2.0/authorize?client_id=9198f68e-537f-4bfa-afe6-205726c6d90e&scope=User.Read%20openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Fstudent.hcmus.edu.vn%2Flogin&client-request-id=afa285b8-398c-4ad1-ac8b-539b7223f1af&response_mode=fragment&response_type=code&x-client-SKU=msal.js.browser&x-client-VER=3.2.0&client_info=1&code_challenge=l2qk6wY6PBGBWpl_kgC1Y5FYksbXF3D6GqGbbEOA_fc&code_challenge_method=S256&nonce=75d1da46-dc60-428c-acab-a487c475f88a&state=eyJpZCI6Ijg2MWQ2YWE3LTZmYWMtNGFlNS1iZTI0LTA0MjNkNWM1MjUwMiIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D&sso_reload=true',\n            'Sec-Ch-Ua': '\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Google Chrome\";v=\"120\"',\n            'Sec-Ch-Ua-Mobile': '?1',",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "user_name",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "user_name = '22120123@student.hcmus.edu.vn'\npassword = 'Hung12345'\ntest = Login(user_name, password)\ntry:\n    timetable_html = test.check_info()\n    print(timetable_html)\nexcept Exception as e:\n    print(f\"Error: {e}\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "password",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "password = 'Hung12345'\ntest = Login(user_name, password)\ntry:\n    timetable_html = test.check_info()\n    print(timetable_html)\nexcept Exception as e:\n    print(f\"Error: {e}\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "test",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "test = Login(user_name, password)\ntry:\n    timetable_html = test.check_info()\n    print(timetable_html)\nexcept Exception as e:\n    print(f\"Error: {e}\")",
+        "detail": "main",
+        "documentation": {}
+    }
+]
