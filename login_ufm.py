@@ -1,14 +1,9 @@
-import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
-from pprint import pprint
 from Event import Event
-from quickstart import main
-import re
 from datetime import datetime, timedelta
 
 class login_ufm():
@@ -50,7 +45,6 @@ class login_ufm():
                 print(2)
 
                 html_content = self.driver.page_source
-                pprint(html_content)
 
                 # Print the page source
                 # html_content = self.driver.page_source
