@@ -1,5 +1,4 @@
 import requests
-from config import password, user_name
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -12,45 +11,12 @@ import re
 from datetime import datetime, timedelta
 
 class login():
-    def __init__(self, user_name, password, event_list = []):
+    def __init__(self, user_name, password, code, event_list = []):
         self.user_name = user_name
         self.password = password
         self.event_list = event_list
+        self.code = code
     
-        self.s = requests.session()
-        headers = {
-            'Accept-Language': 'en',
-            'Referer': 'https://login.microsoftonline.com/40127cd4-45f3-49a3-b05d-315a43a9f033/oauth2/v2.0/authorize?client_id=9198f68e-537f-4bfa-afe6-205726c6d90e&scope=User.Read%20openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Fstudent.hcmus.edu.vn%2Flogin&client-request-id=afa285b8-398c-4ad1-ac8b-539b7223f1af&response_mode=fragment&response_type=code&x-client-SKU=msal.js.browser&x-client-VER=3.2.0&client_info=1&code_challenge=l2qk6wY6PBGBWpl_kgC1Y5FYksbXF3D6GqGbbEOA_fc&code_challenge_method=S256&nonce=75d1da46-dc60-428c-acab-a487c475f88a&state=eyJpZCI6Ijg2MWQ2YWE3LTZmYWMtNGFlNS1iZTI0LTA0MjNkNWM1MjUwMiIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D&sso_reload=true',
-            'Sec-Ch-Ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-            'Sec-Ch-Ua-Mobile': '?1',
-            'Sec-Ch-Ua-Platform':"Android",
-            'Sec-Fetch-Dest': 'document',
-            'Sec-Fetch-Mode': 'navigate',
-            'Sec-Fetch-Site': 'same-origin',
-            'Sec-Fetch-User': '?1',
-            'Upgrade-Insecure-Requests': '1',
-            'User-Agent': 'Mozilla/5.0 (Linux; Android 11.0; Surface Duo) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36',
-        }
-
-        self.s.headers.update(headers)
-
-        data = {
-            'login': self.user_name,
-            'loginfmt': self.user_name,
-            'type': '11',
-            'LoginOptions': '3',
-            'passwd': self.password,
-            'ps': '2',
-        }
-        login_in = self.s.post('https://login.microsoftonline.com/40127cd4-45f3-49a3-b05d-315a43a9f033/login', data = data, timeout=10)
-        # self.s.trust_env == False
-        self.s.cookies.update(login_in.cookies)
-
-    def to_cookier(self):
-        return self.s.cookies.get_dict()
-    
-
-    def checkInfo(self):   
         driver = webdriver.Chrome()
         # options = webdriver.ChromeOptions()
         # options.add_argument('--headless')
@@ -62,56 +28,30 @@ class login():
         # Navigate to portal url
         driver.get('https://student.hcmus.edu.vn/login')
 
+        self.driver = driver
+
+    def to_cookier(self):
+        return self.s.cookies.get_dict()
+    
+    def accessPortal(self):
         try:
-
-            # Choose login by microsoft account
-            element = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, "//button[contains(@class,'microsoft-button')]"))
-            ).click()
-            
-            # Enter username
-            element = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, "//input[contains(@id,'i0116')]"))
-            )
-            element.send_keys(user_name)
-
-            element = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, "//input[contains(@id,'idSIButton9')]"))
-            ).click()
-            
-            # Enter password
-            element = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, "//input[contains(@id,'i0118')]"))
-            )
-            element.send_keys(password)
-            
-            # Press Sign in button
-            element = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, "//input[contains(@value,'Sign in')]"))
-            ).click()
-
-            # Choose send code to phone
-            element = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, "//div[contains(@class,'table-cell text-left content')]"))
-            ).click()
-
             # Press Yes button
-            element = WebDriverWait(driver, 300).until(
+            WebDriverWait(self.driver, 60).until(
                 EC.element_to_be_clickable((By.XPATH, "//input[contains(@value,'Yes')]"))
             ).click()
 
             # Navigate to timetable
-            element = WebDriverWait(driver, 10).until(
+            WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, "//a[contains(@href,'/timetable')]"))
             ).click()
 
             # Show tbody html
-            element = WebDriverWait(driver, 10).until(
+            WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, "//tbody"))
             ).click()
 
             # Print the page source
-            html_content = driver.page_source
+            html_content = self.driver.page_source
             html_content = html_content.split('<tbody>')[1].split('</tbody>')[0]
 
             # Parse the HTML content
@@ -135,17 +75,72 @@ class login():
 
                 self.event_list.append(event)
                 # Print a separator line between rows
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        finally:
+            self.driver.quit()
+    
+    def checkCode(self):
+        try:
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "//input[contains(@id,'idTxtBx_SAOTCC_OTC')]"))
+            ).send_keys(self.code)
+
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//input[contains(@id,'idChkBx_SAOTCC_TD')]"))
+            ).click()
+
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//input[contains(@id,'idSubmit_SAOTCC_Continue')]"))
+            ).click()
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
         finally:
             pass
 
-        # return html_content
-    
-user_name = '22120123@student.hcmus.edu.vn'
-password = 'Hung12345'
-event_list = []
-test = login(user_name, password, event_list)
+            
+    def postCode(self):
+        try:
+            # Choose send code to phone
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//div[contains(@class,'table-cell text-left content')]"))
+            ).click()  # Now click the element after it becomes clickable
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        finally:
+            pass
 
-test.checkInfo()
+    def checkInfo(self):   
+        try:
+            # Choose login by microsoft account
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//button[contains(@class,'microsoft-button')]"))
+            ).click()
+            
+            # Enter username
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "//input[contains(@id,'i0116')]"))
+            ).send_keys(self.user_name)
 
-main(test.event_list)
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//input[contains(@id,'idSIButton9')]"))
+            ).click()
+            
+            # Enter password
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "//input[contains(@id,'i0118')]"))
+            ).send_keys(self.password)
+            
+            # Press Sign in button
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//input[contains(@value,'Sign in')]"))
+            ).click()
+
+            if EC.presence_of_element_located((By.XPATH, "//div[contains(@id,'passwordError')]")):
+                return False
+        finally:
+            return True
+
 

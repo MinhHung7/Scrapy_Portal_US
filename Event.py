@@ -5,10 +5,3 @@ class Event:
         self.start_time = start_time
         self.end_time = end_time
         self.date = date
-    def Print(self):
-        print(self.header)
-        print(self.content)
-        print(self.start_time)
-        print(self.end_time)
-        print(self.date)
-        print("----------------------")

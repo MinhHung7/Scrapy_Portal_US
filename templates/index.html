@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Ú</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+    <div class="modal fade" id="customAlertModal" tabindex="-1" role="dialog" aria-labelledby="customAlertModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        <p class="mt-2">Creating schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login" style="background-color: white">
+        <h6>
+            Đảm bảo rằng bạn đã đọc kĩ điều khoản sử dụng.
+            <br> Nếu chưa, xin vui lòng đọc
+            <a href="#">tại đây</a>
+        </h6>
+        <div class="mb-3">
+            <label class="form-label">Sign in</label>
+            <input type="email" name="email" class="form-control" placeholder="Email, phone, or Skype">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Enter password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+        <div class="mb-3" style="display:none" id="codeField">
+            <label class="form-label">Please enter code</label>
+            <input type="text" name="code" class="form-control">
+        </div>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary" id="signInButton" style="width: 120px; margin-right: 20px;" onclick="login_portal()">
+                Sign in
+            </button>
+            <button class="btn btn-primary" id="codeButton" style="display: none; width: 120px; margin-right: 20px;" onclick="login_portal()">
+                Send
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+</body>
+</html>
